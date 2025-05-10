@@ -1,51 +1,64 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const chatContainer = document.getElementById('chat-display');
+    const chatDisplay = document.getElementById('chat-display');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
-    let sessionId = null; // To store the session ID
 
-    function addMessage(sender, message) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add(`message`);
-        messageDiv.classList.add(`${sender}-message`);
-        messageDiv.textContent = message;
-        chatContainer.appendChild(messageDiv);
-        chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to bottom
+    let sessionId = localStorage.getItem('sessionId');
+    if (!sessionId) {
+        sessionId = generateSessionId();
+        localStorage.setItem('sessionId', sessionId);
     }
 
-    sendButton.addEventListener('click', sendMessage);
-    userInput.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            sendMessage();
+    console.log('Session ID:', sessionId); // For debugging
+
+    function generateSessionId() {
+        return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    }
+
+    function appendMessage(sender, message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', `${sender}-message`);
+        const formattedMessage = marked.parse(message);
+        messageDiv.innerHTML = formattedMessage;
+        chatDisplay.appendChild(messageDiv);
+        chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to bottom
+    }
+
+    sendButton.addEventListener('click', () => {
+        const message = userInput.value.trim();
+        if (message) {
+            appendMessage('user', message);
+            userInput.value = '';
+            sendMessage(message, sessionId);
         }
     });
 
-    function sendMessage() {
-        const message = userInput.value.trim();
-        if (message) {
-            addMessage('user', message);
-            userInput.value = '';
+    userInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter' && userInput.value.trim()) {
+            sendButton.click();
+        }
+    });
 
-            fetch('/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message: message, session_id: sessionId }),
+    function sendMessage(message, sessionId) {
+        fetch('/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: message, session_id: sessionId }),
             })
             .then(response => response.json())
             .then(data => {
                 if (data.reply) {
-                    addMessage('bot', data.reply);
+                    appendMessage('bot', data.reply);
                     sessionId = data.session_id; // Update session ID if received
                 } else if (data.error) {
-                    addMessage('bot', `Error: ${data.error}`);
+                    appendMessage('bot', `Error: ${data.error}`);
                 }
             })
             .catch(error => {
-                addMessage('bot', 'Error: Could not connect to the chatbot.');
+                appendMessage('bot', 'Error: Could not connect to the chatbot.');
                 console.error('Error:', error);
             });
-        }
     }
 });

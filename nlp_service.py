@@ -50,7 +50,6 @@ class NLProcessor:
 
         processed_text = self._preprocess(text)
         text_vector = self.vectorizer.transform([processed_text])
-        print(f"text_vector - {text_vector}")
         print(f"processed_text - {processed_text}")
 
         # Calculate cosine similarities

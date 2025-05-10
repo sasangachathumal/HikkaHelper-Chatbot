@@ -1,0 +1,131 @@
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f0f8f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* animation: slideshow 20s infinite;  Adjust duration as needed */
+        }
+
+        @keyframes slideshow {
+            0% {
+                background-image: url('{{ url_for('static', filename='image_1.jpg') }}');
+            }
+            33.33% {
+                background-image: url('{{ url_for('static', filename='image_2.jpg') }}');
+            }
+            66.66% {
+                background-image: url('{{ url_for('static', filename='image_3.jpg') }}');
+            }
+            100% {
+                background-image: url('{{ url_for('static', filename='image_4.jpg') }}'); /* Loop back to the first image */
+            }
+        }
+
+        #chat-container-wrapper {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 50%;
+            max-width: 60%;
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+            max-height: 70vh;
+        }
+
+        #chat-header {
+            background-color: #8fbc8f; /* Medium sea green header */
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        #chat-display {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            clear: both;
+            max-width: 80%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-message {
+            background-color: #e0eee8; /* Light green user bubble */
+            color: #2e8b57; /* Sea green text */
+            align-self: flex-end;
+            border-bottom-right-radius: 0px;
+        }
+
+        .bot-message {
+            background-color: #f0fff0; /* Honeydew bot bubble */
+            color: #2e8b57; /* Medium sea green text */
+            align-self: flex-start;
+            border-bottom-left-radius: 0px;
+        }
+
+        #input-area {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            align-items: center; /* Vertically align input and button */
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            margin-right: 10px;
+        }
+
+        #send-button {
+            background-color: #3cb371; /* Medium sea green button */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #send-button:hover {
+            background-color: #2e8b57;
+        }
+
+        /* Custom scrollbar for WebKit browsers */
+        #chat-display::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #chat-display::-webkit-scrollbar-track {
+            background-color: #a9a9a9; /* Dark gray scrollbar */
+            border-radius: 4px;
+        }
+
+        #chat-display::-webkit-scrollbar-thumb {
+            background-color: #2e8b57; /* Dark gray scrollbar */
+            border-radius: 4px;
+        }
+
+        #chat-display::-webkit-scrollbar-thumb:hover {
+            background-color: #808080;
+        }
