@@ -1,0 +1,79 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Hey", "Good morning", "Good evening", "Ayubowan", "Sup"],
+      "responses": ["Hello! How can I help you with your Hikkaduwa plans today?", "Hi there! Ask me anything about Hikkaduwa.", "Ayubowan! What information are you looking for about Hikkaduwa?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye", "Ok bye", "Catch you later"],
+      "responses": ["Goodbye! Enjoy your time in Hikkaduwa!", "See you later! Feel free to ask if you have more questions.", "Have a great day!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for your help"],
+      "responses": ["You're welcome!", "Happy to help!", "Any time!", "My pleasure!"]
+    },
+    {
+      "tag": "about",
+      "patterns": ["Who are you?", "What are you?", "What is your purpose?"],
+      "responses": ["I'm HikkaHelper, your virtual assistant for travel and tourism in Hikkaduwa!", "I can provide information about activities, places, weather, and more in Hikkaduwa."]
+    },
+    {
+      "tag": "find_hotels",
+      "patterns": ["Where can I stay?", "Suggest some hotels", "Find hotels in Hikkaduwa", "Hotel options", "Accommodation"],
+      "responses": ["Okay, looking up hotels in Hikkaduwa..."]
+    },
+    {
+      "tag": "find_activities",
+      "patterns": ["What can I do there?", "Things to do in Hikkaduwa", "Activities", "Suggest activities", "What's fun to do?"],
+      "responses": ["Let me check the activities available in Hikkaduwa..."]
+    },
+    {
+      "tag": "weather_query",
+      "patterns": ["What's the weather like?", "How is the weather in Hikkaduwa?", "Weather forecast", "Is it sunny?"],
+      "responses": ["Checking the weather for Hikkaduwa..."]
+    },
+    {
+      "tag": "location_info",
+      "patterns": ["Tell me about Hikkaduwa", "Where is Hikkaduwa?", "Information about Hikkaduwa town"],
+      "responses": ["Let me fetch some general information about Hikkaduwa..."]
+    },
+    {
+      "tag": "getting_around",
+      "patterns": ["How to get around in Hikkaduwa?", "Transportation options", "Local transport", "Moving around Hikkaduwa"],
+      "responses": ["Let me provide you with information on transportation options in Hikkaduwa..."]
+    },
+    {
+      "tag": "local_food",
+      "patterns": ["Where to eat local food?", "Best local restaurants", "Sri Lankan food in Hikkaduwa", "Must-try dishes"],
+      "responses": ["Searching for great local food spots in Hikkaduwa..."]
+    },
+    {
+      "tag": "currency",
+      "patterns": ["What is the currency in Sri Lanka?", "Sri Lankan currency", "Local money"],
+      "responses": ["The currency in Sri Lanka is the Sri Lankan Rupee (LKR)."]
+    },
+    {
+      "tag": "surfing_spots",
+      "patterns": ["Best surfing spots in Hikkaduwa?", "Where can I surf?", "Good surf locations"],
+      "responses": ["Looking up the best surfing spots in Hikkaduwa..."]
+    },
+    {
+      "tag": "snorkeling_diving",
+      "patterns": ["Where to snorkel?", "Best места for diving", "Snorkeling spots in Hikkaduwa", "Diving locations"],
+      "responses": ["Let me find information on snorkeling and diving locations..."]
+    },
+    {
+      "tag": "budget_travel",
+      "patterns": ["Budget travel tips", "Traveling Hikkaduwa on a budget", "Affordable options"],
+      "responses": ["Here are some tips for traveling Hikkaduwa on a budget..."]
+    },
+    {
+      "tag": "safety_tips",
+      "patterns": ["Safety tips for Hikkaduwa", "Is it safe?", "Things to be careful about"],
+      "responses": ["Here are some general safety tips for your visit to Hikkaduwa..."]
+    }
+  ]
+}
