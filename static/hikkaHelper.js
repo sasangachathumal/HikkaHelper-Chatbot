@@ -5,7 +5,7 @@
     let userInput = null;
     let sendButton = null;
     let sessionId = null;
-    const apiUrl = '/chat'; // Adjust if your API is hosted elsewhere
+    const apiUrl = '/chat';
 
     function createChatWidget() {
         chatWidget = document.createElement('div');
@@ -14,7 +14,7 @@
         chatWidget.style.bottom = '20px';
         chatWidget.style.right = '20px';
         chatWidget.style.zIndex = '1000';
-        chatWidget.style.display = 'none'; // Initially hidden
+        chatWidget.style.display = 'none';
         chatWidget.style.border = '1px solid #ccc';
         chatWidget.style.borderRadius = '5px';
         chatWidget.style.backgroundColor = '#f9f9f9';
@@ -89,8 +89,6 @@
             chatWidget.style.display = 'flex';
             chatButton.style.display = 'none';
         });
-
-        // Create the chat widget when the button is created but keep it hidden
         createChatWidget();
     }
 
@@ -133,7 +131,5 @@
             });
         }
     }
-
-    // Create the initial chat button
     createChatButton();
 })();

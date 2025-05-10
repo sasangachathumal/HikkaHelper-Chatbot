@@ -1,9 +1,6 @@
-# travel_chatbot/train_model.py
-
 import json
 import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
 from utils import TextPreprocessor
 
 INTENTS_PATH = 'intents.json'
@@ -55,5 +52,4 @@ def train():
         print(f"Error saving model: {e}")
 
 if __name__ == '__main__':
-    import string # Import needed for preprocessing here
     train()

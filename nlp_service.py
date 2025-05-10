@@ -1,11 +1,4 @@
-# travel_chatbot/nlp_service.py
-
-import json
-import re
-import string
-import nltk
-import joblib # Using joblib for potentially better performance with sklearn objects
-from sklearn.feature_extraction.text import TfidfVectorizer
+import joblib
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import os
@@ -36,17 +29,16 @@ class NLProcessor:
                 print("NLP Model loaded successfully.")
             except Exception as e:
                 print(f"Error loading model: {e}. Please retrain the model.")
-                # Handle error appropriately - maybe exit or disable prediction
                 self.vectorizer = None
         else:
             print(f"Model file ({MODEL_PATH}) not found. Please train the model first.")
-            # Handle appropriately
 
     def predict_intent(self, text):
         """Predicts the intent of the user input using TF-IDF and Cosine Similarity."""
         if not self.vectorizer or self.intent_vectors is None or self.tags is None:
             print("NLP model not loaded. Cannot predict intent.")
-            return None, 0.0 # Return None intent and 0 confidence
+            # Return None intent and 0 confidence
+            return None, 0.0
 
         processed_text = self._preprocess(text)
         text_vector = self.vectorizer.transform([processed_text])

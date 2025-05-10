@@ -1,5 +1,3 @@
-# travel_chatbot/inference_engine.py
-
 import random
 import json
 from nlp_service import NLProcessor
@@ -58,14 +56,14 @@ class InferenceEngine:
             'snorkeling_diving': 'snorkeling_diving',
             'budget_travel': 'budget_travel',
             'safety_tips': 'safety_tips'
-            # Add mappings for other knowledge-based intents
         }
         category = category_map.get(tag)
         if category:
             initial_response = self._get_random_response(tag)
             shown_ids = self.history_manager.get_shown_item_ids(session_id, category)
             total_item_count = self._get_total_item_count(category=category)
-            limit = 3  # Number of results to fetch per turn
+            # Number of results to fetch per turn
+            limit = 3
 
             if shown_ids and len(shown_ids) >= total_item_count:
                 # All items have been shown, reset the shown IDs to start over

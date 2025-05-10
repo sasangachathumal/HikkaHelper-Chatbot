@@ -1,4 +1,3 @@
-# travel_chatbot/seed_data.py
 import json
 from database import init_db, add_knowledge, get_db_connection
 
@@ -7,7 +6,7 @@ def seed():
     print("Seeding database...")
     init_db() # Ensure tables exist
 
-    # Clear existing data for idempotency (optional)
+    # Clear existing data
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("DELETE FROM knowledge")

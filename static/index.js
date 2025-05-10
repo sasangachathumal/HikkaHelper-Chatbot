@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('sessionId', sessionId);
     }
 
-    console.log('Session ID:', sessionId); // For debugging
+    console.log('Session ID:', sessionId);
 
     function generateSessionId() {
         return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formattedMessage = marked.parse(message);
         messageDiv.innerHTML = formattedMessage;
         chatDisplay.appendChild(messageDiv);
-        chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to bottom
+        chatDisplay.scrollTop = chatDisplay.scrollHeight;
     }
 
     sendButton.addEventListener('click', () => {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 if (data.reply) {
                     appendMessage('bot', data.reply);
-                    sessionId = data.session_id; // Update session ID if received
+                    sessionId = data.session_id;
                 } else if (data.error) {
                     appendMessage('bot', `Error: ${data.error}`);
                 }

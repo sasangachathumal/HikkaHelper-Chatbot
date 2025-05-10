@@ -1,5 +1,3 @@
-# download_nltk_resources.py
-
 import nltk
 import ssl
 

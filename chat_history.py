@@ -1,11 +1,3 @@
-# travel_chatbot/chat_history.py
-
-from collections import defaultdict, deque
-
-MAX_HISTORY_LEN = 5 # Keep last 5 turns per session
-
-# chat_history.py
-
 class ChatHistoryManager:
     def __init__(self):
         self.history = {} # session_id: {'messages': [], 'shown_items': {}, 'last_intent': None}
