@@ -6,7 +6,7 @@ import uuid
 from database import init_db, log_interaction
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = 'HikkaHelper_secret_key'
 
 app.static_folder = 'static'
 app.template_folder = 'templates'
